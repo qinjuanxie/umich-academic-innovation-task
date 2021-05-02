@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Meme Generator</title>
+
+	</head>
+	<body>
+		<span style="float:right">
+			<a href="/">explore</a >|
+		</span>
+		<a href="/">Home</a> |<b>Meme Generator</b>
+		<hr>
+
+		{% for item in photo %}
+		<div class="image">
+			<a href="{{item}}" download>
+            <img src="{{item}}" alt="post picture" style="width: 50%"/>
+			</a>
+        </div>
+		
+		<form action="/results" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="img_url" value="{{item}}"/>
+		<input type="submit" name="chosen" value="chosen"/>
+		</form>
+		{% endfor %}
+
+	</body>
+</html>
