@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta charset="utf-8">
 		<title>Meme Generator</title>
-
 	</head>
 	<body>
-		<span style="float:right">
-			<a href="/">explore</a >|
-		</span>
-		<a href="/">Home</a> |<b>Meme Generator</b>
+		<p style="text-align:center;font-size:20px">
+		<span style="color:#00274C"><a href="/">Home</a></span> | <span style="color:#FFCB05"> <b>Meme Generator</b> </span>
+		</p>
 		<hr>
 
-        <img src="{{old_img_url}}" alt="post picture" style="width: 50%"/>
-        
+        {% if not img_data %}
+        <div style="text-align:center">
+        <img src="{{old_img_url}}" alt="post picture" style="width: 40%"/>
+        </div>
+
+        <div style="text-align:center">
         <form action="/selected" method="post" enctype="multipart/form-data">
-			<input type="text" name="input-text"/>
+			<input type="text" name="input-text" style="font-size:20px" placeholder="Add text here" required/>
             <input type="hidden" name="img_url" value="{{old_img_url}}"/>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="submit" style="font-size:20px"/>
         </form>
+        </div>
+        {% endif %}
 
         {% if img_data %}
+        <div style="text-align:center">
         <a href="data:image/png;base64, {{img_data}}" download>
-            <img src="data:image/png;base64, {{img_data}}" />
+            <img src="data:image/png;base64, {{img_data}}" style="width: 40%" />
         </a>
+        </div>
         {% endif %}
 
 	</body>

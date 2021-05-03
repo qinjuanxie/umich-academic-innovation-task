@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta charset="utf-8">
 		<title>Meme Generator</title>
-
+		<style>
+			.photo_container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.photo {
+				width: 33%;
+				float: left;
+				box-sizing: border-box;
+				padding: 5px;
+				text-align: center;
+				display: block;
+  				margin-left: auto;
+  				margin-right: auto;
+			}
+		</style>
 	</head>
 	<body>
-		<span style="float:right">
-			<a href="/">explore</a >|
-		</span>
-		<a href="/">Home</a> |<b>Meme Generator</b>
+		<p style="text-align:center;font-size:20px">
+		<span style="color:#00274C"><a href="/">Home</a></span> | <span style="color:#FFCB05"> <b>Meme Generator</b> </span>
+		</p>
 		<hr>
 
+		{% if size == 0 %}
+		<p style="text-align:center;font-size:20px">
+		No results match your query. Try another query.
+		</p>
+		{% endif %}
+
+		<div class="photo_container">
 		{% for item in photo %}
+		<div class="photo">
 		<form action="/selected" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="img_url" value="{{item}}"/>
-			<input type="image" name="submit" src="{{item}}" alt="post picture" style="width: 50%"/>
+			<input type="image" name="submit" src="{{item}}" alt="matched image" style="width: 50%"/>
 		</form>
+		</div>
 		{% endfor %}
+		</div>
 
 	</body>
 </html>
