@@ -26,3 +26,5 @@ $ deactivate
 Then you can navigate to http://localhost:8000 and see the webiste meme generator.
 
 Note: You may need to install packages needed if prompts like "no module named PIL" is found.
+
+Note: You may use your own public flickr_key to interact with Flickr API.
