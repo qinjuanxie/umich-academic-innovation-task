@@ -12,15 +12,9 @@
 		<hr>
 
 		{% for item in photo %}
-		<div class="image">
-			<a href="{{item}}" download>
-            <img src="{{item}}" alt="post picture" style="width: 50%"/>
-			</a>
-        </div>
-		
-		<form action="/results" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="img_url" value="{{item}}"/>
-		<input type="submit" name="chosen" value="chosen"/>
+		<form action="/selected" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="img_url" value="{{item}}"/>
+			<input type="image" name="submit" src="{{item}}" alt="post picture" style="width: 50%"/>
 		</form>
 		{% endfor %}
 
