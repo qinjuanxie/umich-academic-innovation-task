@@ -19,7 +19,7 @@ def show_main():
 
 @app.route('/results', methods=['GET', 'POST'])
 def show_results():
-    flickr_key = "d57e81fd7e74e169f325dff9c089283a"
+    flickr_key = "YOUR-OWN-PRIVATE-KEY-HERE"  # Use your Flicker account private key
     baseurl = "https://www.flickr.com/services/rest/"
     params_dict = {}
     params_dict["method"] = "flickr.photos.search"
